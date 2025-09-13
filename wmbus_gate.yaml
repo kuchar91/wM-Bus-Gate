@@ -1,0 +1,84 @@
+packages:
+  hal: !include
+    file: lilygo_t3_s3_hal.yaml
+  resources: github://IoTLabs-pl/wM-Bus-Gateway/packages/resources.yaml@master
+  version: github://IoTLabs-pl/wM-Bus-Gateway/packages/version.yaml@master
+
+external_components:
+  - source: 
+      type: git
+      url: https://github.com/IoTLabs-pl/ESPHome-Components
+      ref: ${esphome_components_version}
+    components:
+      - wmbus_common
+      - wmbus_radio
+      - wmbus_meter
+  - source: 
+      type: git
+      url: https://github.com/IoTLabs-pl/wM-Bus-Gateway
+      ref: ${wmbus_gateway_version}
+    components:
+      - wmbus_gateway
+
+web_server:
+  version: 3
+
+debug:
+  update_interval: 5s
+
+time:
+  - platform: sntp
+  - platform: homeassistant
+
+button:
+  - platform: restart
+    name: Restart
+
+sensor:
+  - platform: internal_temperature
+    name: "Internal Temperature"
+
+  - platform: debug
+    free:
+      name: "Heap Free"
+    loop_time:
+      name: "Loop Time"
+
+  - platform: uptime
+    type: seconds
+    name: Uptime
+
+  - platform: wifi_signal
+    name: "WiFi Signal dB"
+    id: wifi_signal_db
+    update_interval: 60s
+    entity_category: "diagnostic"
+
+
+text_sensor:
+  - platform: debug
+    device:
+      name: "Device Info"
+    reset_reason:
+      name: "Reset Reason"
+
+esphome:
+  name: wmbus-gateway
+  friendly_name: wM-Bus Gateway
+  comment: wM-Bus Gateway for ESPHome
+  project:
+    name: k3.wM-Bus Gateway
+    version: ${wmbus_gateway_version}
+
+wmbus_radio:
+  on_frame:
+    - then:
+        - repeat:
+            count: 20
+            then:
+              - light.control:
+                  id: wmbus_gateway_status_led
+                  state: !lambda return iteration % 2 == 0;
+              - delay: 50ms
+
+wmbus_gateway:
