@@ -67,7 +67,7 @@ esphome:
   friendly_name: wM-Bus Gateway
   comment: wM-Bus Gateway for ESPHome
   project:
-    name: k3.wM-Bus Gateway
+    name: IoTLabs.wM-Bus Gateway
     version: ${wmbus_gateway_version}
 
 wmbus_radio:
