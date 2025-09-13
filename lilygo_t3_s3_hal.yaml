@@ -1,0 +1,52 @@
+esphome:
+  platformio_options:
+    upload_speed: 921600
+
+esp32:
+  board: lilygo-t3-s3
+  cpu_frequency: 240MHz
+  framework:
+    type: esp-idf
+
+spi:
+  clk_pin:
+    number: GPIO5
+  mosi_pin: GPIO6
+  miso_pin:
+    number: GPIO3
+    ignore_strapping_warning: true
+
+i2c:
+  frequency: 800kHz
+  scan: False
+  sda: GPIO18
+  scl: GPIO17
+
+display:
+  - platform: ssd1306_i2c
+    model: SSD1306 128x64
+    address: 0x3C
+    auto_clear_enabled: True
+    contrast: 50%
+    update_interval: never
+
+wmbus_radio:
+  radio_type: SX1276
+  cs_pin: GPIO7
+  reset_pin: GPIO8
+  irq_pin: GPIO33
+
+light:
+  - platform: status_led
+    id: wmbus_gateway_status_led
+    pin: GPIO37
+
+binary_sensor:
+  - platform: gpio
+    id: ext_button
+    pin:
+      number: GPIO0
+      ignore_strapping_warning: true
+      mode: input
+      inverted: True
+ 
