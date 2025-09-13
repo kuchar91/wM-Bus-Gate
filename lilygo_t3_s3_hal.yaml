@@ -8,6 +8,8 @@ esp32:
   framework:
     type: esp-idf
 
+psram:
+
 spi:
   clk_pin:
     number: GPIO5
