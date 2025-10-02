@@ -80,5 +80,3 @@ wmbus_radio:
                   id: wmbus_gateway_status_led
                   state: !lambda return iteration % 2 == 0;
               - delay: 50ms
-
-wmbus_gateway:
