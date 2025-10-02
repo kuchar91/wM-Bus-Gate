@@ -28,7 +28,7 @@ debug:
 
 time:
   - platform: sntp
-  - platform: homeassistant
+    id: time_sntp
 
 button:
   - platform: restart
@@ -38,11 +38,11 @@ sensor:
   - platform: internal_temperature
     name: "Internal Temperature"
 
-  - platform: debug
-    free:
-      name: "Heap Free"
-    loop_time:
-      name: "Loop Time"
+#  - platform: debug
+#    free:
+#      name: "Heap Free"
+#    loop_time:
+#      name: "Loop Time"
 
   - platform: uptime
     type: seconds
