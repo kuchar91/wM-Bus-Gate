@@ -64,7 +64,6 @@ text_sensor:
 
 esphome:
   name: wmbus-gateway
-  friendly_name: wM-Bus Gateway
   comment: wM-Bus Gateway for ESPHome
   project:
     name: IoTLabs.wM-Bus Gateway
