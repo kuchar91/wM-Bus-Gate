@@ -24,7 +24,7 @@ web_server:
   version: 3
 
 debug:
-  update_interval: 5s
+  update_interval: 15s
 
 time:
   - platform: sntp
