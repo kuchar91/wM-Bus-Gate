@@ -54,20 +54,12 @@ sensor:
     update_interval: 60s
     entity_category: "diagnostic"
 
-
 text_sensor:
   - platform: debug
     device:
       name: "Device Info"
     reset_reason:
       name: "Reset Reason"
-
-esphome:
-  name: wmbus-gateway
-  comment: wM-Bus Gateway for ESPHome
-  project:
-    name: IoTLabs.wM-Bus Gateway
-    version: ${wmbus_gateway_version}
 
 wmbus_radio:
   on_frame:
