@@ -20,18 +20,19 @@ spi:
     ignore_strapping_warning: true
 
 i2c:
-  frequency: 800kHz
+  frequency: 400kHz
   scan: False
   sda: GPIO18
   scl: GPIO17
 
 display:
   - platform: ssd1306_i2c
+    id: oled
     model: SSD1306 128x64
     address: 0x3C
     auto_clear_enabled: True
     contrast: 50%
-    update_interval: never
+    update_interval: 1s
 
 wmbus_radio:
   radio_type: SX1276
