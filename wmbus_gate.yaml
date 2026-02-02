@@ -71,3 +71,11 @@ wmbus_radio:
                   id: wmbus_gateway_status_led
                   state: !lambda return iteration % 2 == 0;
               - delay: 50ms
+        - logger.log:
+            level: WARN
+            format: "Meter ID: %s"
+            args: ["frame->meter_id().c_str()"]
+        - logger.log:
+            level: WARN
+            format: "Frame: https://wmbusmeters.org/analyze/%s"
+            args: ["frame->as_hex().c_str()"]
