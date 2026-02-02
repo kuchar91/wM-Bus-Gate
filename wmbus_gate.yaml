@@ -79,3 +79,10 @@ wmbus_radio:
             level: WARN
             format: "Frame: https://wmbusmeters.org/analyze/%s"
             args: ["frame->as_hex().c_str()"]
+
+wmbus_gateway:
+  resources:
+    font_large: font_large
+    font_small: font_small
+    qrcode: qrcode
+    logo: logo
