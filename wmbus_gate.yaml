@@ -20,9 +20,6 @@ external_components:
     components:
       - wmbus_gateway
 
-web_server:
-  version: 3
-
 debug:
   update_interval: 15s
 
