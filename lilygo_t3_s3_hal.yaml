@@ -32,7 +32,7 @@ display:
     address: 0x3C
     auto_clear_enabled: True
     contrast: 50%
-    update_interval: 1s
+    update_interval: 5s
 
 wmbus_radio:
   radio_type: SX1276
