@@ -20,7 +20,7 @@ spi:
     ignore_strapping_warning: true
 
 i2c:
-  frequency: 400kHz
+  frequency: 800kHz
   scan: False
   sda: GPIO18
   scl: GPIO17
