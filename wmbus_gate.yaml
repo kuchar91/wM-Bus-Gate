@@ -20,9 +20,6 @@ external_components:
     components:
       - wmbus_gateway
 
-debug:
-  update_interval: 15s
-
 time:
   - platform: sntp
     id: time_sntp
@@ -34,13 +31,7 @@ button:
 sensor:
   - platform: internal_temperature
     name: "Internal Temperature"
-
-  - platform: debug
-    free:
-      name: "Heap Free"
-    loop_time:
-      name: "Loop Time"
-
+    
   - platform: uptime
     type: seconds
     name: Uptime
@@ -50,13 +41,6 @@ sensor:
     id: wifi_signal_db
     update_interval: 60s
     entity_category: "diagnostic"
-
-text_sensor:
-  - platform: debug
-    device:
-      name: "Device Info"
-    reset_reason:
-      name: "Reset Reason"
 
 wmbus_radio:
   on_frame:
